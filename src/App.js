@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import Task from './components/TaskCard'
+import Task from './components/TaskCard';
+import uniqid from 'uniqid';
 
 class App extends React.Component {
   state = {
@@ -27,35 +28,45 @@ class App extends React.Component {
       desc: this.state.controlInputDescription,
       create: Date(),
       due: this.state.controlInputDue,
-      deleted: false
+      deleted: false,
+      id: uniqid()
     }
     newToDoList.push(objbuilder)
-    console.log(newToDoList)
     this.setState({
         toDoList: newToDoList,
         controlInputTitle: '',
         controlInputDescription: '',
-        controlInputDue: '',
+        controlInputDue: '', 
     })
+  }
+
+  handleDelete(selected) {
+    const originalToDoList = this.state.toDoList.slice()
+    const foundItem = originalToDoList.find (i =>i.id === selected)
+    foundItem.deleted = true
+    this.setState({toDoList: originalToDoList})
   }
 
   renderToDos() {
     const list = this.state.toDoList
     return list.map((i,k)=>{
-       return (
-        //  <div key={k} className="ListItem">
-        //    {i}
-        //  </div>
-         <Task
-         key={k}
-         task={i.task}
-         desc={i.desc}
-         create={i.create}
-         due={i.due}
-         deleted={i.deleted}
-       />
-          // <li key={k}>{i}</li>
-        )
+      const gstDate = new Date(i.create)
+      const dateformat = `${gstDate.getMonth()+1}/${gstDate.getDate()}/${gstDate.getFullYear()}`
+      if (!i.deleted){
+        return (
+          <Task
+          key={k}
+          id={i.id}
+          task={i.task}
+          desc={i.desc}
+          create={dateformat}
+          due={i.due}
+          deleted={i.deleted}
+          clickaction={(selected)=>this.handleDelete(selected)}
+        />
+       )
+
+      }
     })
   }
 
@@ -86,7 +97,7 @@ class App extends React.Component {
                 </div>
                 <div> Due Date-->
                   <input 
-                    type="text"
+                    type="date"
                     cols="50" 
                     value={this.state.controlInputDue}
                     onChange={(e, field)=>this.handleChange(e, 'controlInputDue')}

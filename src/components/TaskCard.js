@@ -13,7 +13,12 @@ export default class Task extends Component{
             <div className = "Card-Section">{`Create Date: ${this.props.create}`}</div>
             <div className = "Card-Section">{`Due Date: ${this.props.due}`}</div>
           </div>
-          <button className = "Delete"><span role="img" aria-label="delete-icon">🗑️</span></button>
+          <button 
+            className = "Delete"
+            onClick = {()=>this.props.clickaction(this.props.id)}
+          >
+            <span role="img" aria-label="delete-icon">🗑️</span>
+          </button>
         </div>
       </div>
     )
