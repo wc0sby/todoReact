@@ -77,17 +77,23 @@ class App extends React.Component {
           <div className="Container">
             <div className="Section">
               <header>What do you need to do?</header>
-              <div>
-                <div> Title-->
-                  <input 
-                    type="text"
-                    cols="50" 
-                    rows="3" 
-                    value={this.state.controlInputTitle}
-                    onChange={(e, field)=>this.handleChange(e, 'controlInputTitle')}
-                  />
+              <div className="Main-Form">
+                <div>
+                <div className="Form-Container">
+                  <div className="Form-Label"> Title--></div>
+                    <div>
+                    <input 
+                      type="text"
+                      cols="50" 
+                      rows="3" 
+                      value={this.state.controlInputTitle}
+                      onChange={(e, field)=>this.handleChange(e, 'controlInputTitle')}
+                    />
+                    </div>
+                  </div>
                 </div>
-                <div> Description-->
+                <div className="Form-Container">
+                <div className="Form-Label"> Description--></div>
                   <input 
                     type="text"
                     cols="50" 
@@ -95,7 +101,8 @@ class App extends React.Component {
                     onChange={(e, field)=>this.handleChange(e, 'controlInputDescription')}
                   />
                 </div>
-                <div> Due Date-->
+                <div className="Form-Container">
+                <div className="Form-Label"> Due Date--></div>
                   <input 
                     type="date"
                     cols="50" 

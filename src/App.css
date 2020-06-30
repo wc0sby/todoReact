@@ -17,6 +17,23 @@
   text-align: center;
 }
 
+.Form-Label {
+  width: 50%;
+  text-align: right;
+}
+
+.Main-Form {
+  width: 100%;
+}
+
+.Form-Container {
+  display: flex;
+  flex-direction: row;
+  width: 75%;
+  justify-content: space-around;
+  text-align: left;
+}
+
 header {
   color: white;
   font-size: 2vw;
