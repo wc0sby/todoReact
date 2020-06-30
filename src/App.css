@@ -1,0 +1,76 @@
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  color: white
+}
+
+.Container {
+  display: flex;
+  height: 100vh;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.Section {
+  border: 2px solid white;
+  width: 100%;
+  text-align: center;
+}
+
+header {
+  color: white;
+  font-size: 2vw;
+  margin: 10px 0px 20px;
+}
+li {
+  color: white;
+  list-style: none;
+}
+
+.ListItem {
+  color: white;
+  margin: 15px 0
+}
+
+.Task-Card {
+  margin-top: 5px;
+}
+
+.Delete {
+  padding: 0;
+  border: none;
+  background: none;
+  /* height: 50%; */
+  /* width: 100%; */
+  padding: 5px
+}
+
+.Card-Container {
+  height: 10%;
+  width: 90%;
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Card-Section-Container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* text-align: left; */
+  justify-content: space-around;
+}
+
+#Left-Card {
+  text-align: left;
+}
+
+#Right-Card {
+  text-align: Left;
+  align-self: right;
+  padding-left: 50px;
+}
